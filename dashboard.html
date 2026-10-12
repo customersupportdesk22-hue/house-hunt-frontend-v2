@@ -85,6 +85,9 @@
   .btn-video { background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; border: none; padding: 10px 14px; font-size: 12px; font-weight: 700; }
   .btn-video:hover { opacity: 0.9; }
   .btn-video:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-tiktok { background: linear-gradient(135deg, #ec4899, #db2777); color: white; border: none; padding: 10px 14px; font-size: 12px; font-weight: 700; }
+  .btn-tiktok:hover { opacity: 0.9; }
+  .btn-tiktok:disabled { opacity: 0.5; cursor: not-allowed; }
   .btn-verify { background: linear-gradient(135deg, #22c55e, #16a34a); color: white; border: none; padding: 8px 12px; font-size: 11.5px; }
   .btn-verify:hover { opacity: 0.9; }
   .btn-assign { background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; border: none; padding: 8px 12px; font-size: 11.5px; }
@@ -650,145 +653,146 @@
     <div id="enquiriesList">
       <div class="loading"><div class="spinner"></div>Loading enquiries...</div>
     </div>
-  </div>  <!-- ============================================================
-       PANEL 2: ADD PROPERTY
-       ============================================================ -->
-  <div class="panel" id="panel-add-property">
-    <div class="form-card">
-      <h3>📸 Add New Property</h3>
-      <div class="alert err" id="addPropError"></div>
-      <div class="alert ok" id="addPropSuccess"></div>
+  </div><!-- ============================================================
+     PANEL 2: ADD PROPERTY
+     ============================================================ -->
+<div class="panel" id="panel-add-property">
+  <div class="form-card">
+    <h3>📸 Add New Property</h3>
+    <div class="alert err" id="addPropError"></div>
+    <div class="alert ok" id="addPropSuccess"></div>
 
+    <div class="field">
+      <label>Property Title *</label>
+      <input type="text" id="propTitle" placeholder="e.g., Modern 2 Bedroom Apartment in Kilimani">
+    </div>
+
+    <div class="grid-2">
       <div class="field">
-        <label>Property Title *</label>
-        <input type="text" id="propTitle" placeholder="e.g., Modern 2 Bedroom Apartment in Kilimani">
+        <label>Location *</label>
+        <input type="text" id="propLocation" placeholder="e.g., Kilimani, Nairobi">
       </div>
-
-      <div class="grid-2">
-        <div class="field">
-          <label>Location *</label>
-          <input type="text" id="propLocation" placeholder="e.g., Kilimani, Nairobi">
-        </div>
-        <div class="field">
-          <label>Price (KES) *</label>
-          <input type="number" id="propPrice" placeholder="e.g., 35000">
-        </div>
-      </div>
-
-      <div class="grid-2">
-        <div class="field">
-          <label>Bedrooms</label>
-          <input type="number" id="propBedrooms" placeholder="e.g., 2">
-        </div>
-        <div class="field">
-          <label>Bathrooms</label>
-          <input type="number" id="propBathrooms" placeholder="e.g., 1">
-        </div>
-      </div>
-
       <div class="field">
-        <label>Type</label>
-        <select id="propType">
-          <option value="rent">For Rent</option>
-          <option value="sale">For Sale</option>
-        </select>
+        <label>Price (KES) *</label>
+        <input type="number" id="propPrice" placeholder="e.g., 35000">
       </div>
+    </div>
 
+    <div class="grid-2">
       <div class="field">
-        <label>Description</label>
-        <textarea id="propDescription" placeholder="Describe the property..."></textarea>
-        <button type="button" class="btn-ai-desc" id="propGenDescBtn" onclick="generateDescForAdd()">
-          ✨ Generate Description with AI
-        </button>
+        <label>Bedrooms</label>
+        <input type="number" id="propBedrooms" placeholder="e.g., 2">
       </div>
-
       <div class="field">
-        <label>📞 Agent Phone Number (Optional)</label>
-        <input type="tel" id="propAgentPhone" placeholder="e.g., 0712345678">
+        <label>Bathrooms</label>
+        <input type="number" id="propBathrooms" placeholder="e.g., 1">
       </div>
+    </div>
 
-      <!-- LANDLORD INFO -->
-      <div style="background:var(--accent-light); padding:14px; border-radius:12px; margin-bottom:16px; border:1px solid rgba(59,130,246,0.25);">
-        <div style="font-size:12.5px; color:var(--accent-dark); font-weight:800; margin-bottom:10px;">
-          🏠 Landlord Information (Required)
-        </div>
-        <div class="field" style="margin-bottom:10px;">
-          <label>Landlord Full Name *</label>
-          <input type="text" id="propLandlordName" placeholder="e.g., Peter Kamau">
-        </div>
-        <div class="field" style="margin-bottom:10px;">
-          <label>Landlord Phone *</label>
-          <input type="tel" id="propLandlordPhone" placeholder="e.g., 0722334455">
-        </div>
-        <div class="field" style="margin-bottom:0;">
-          <label>Landlord Email (Optional — for account creation)</label>
-          <input type="email" id="propLandlordEmail" placeholder="e.g., peter@gmail.com">
-        </div>
-      </div>
+    <div class="field">
+      <label>Type</label>
+      <select id="propType">
+        <option value="rent">For Rent</option>
+        <option value="sale">For Sale</option>
+      </select>
+    </div>
 
-      <div class="field">
-        <label>🎬 Video Tour URL (Cloudinary, TikTok, YouTube, or MP4)</label>
-        <input type="url" id="propTiktok" placeholder="Paste video URL">
-        <input type="file" id="addVideoFile" accept="video/*" style="display:none;" onchange="uploadVideoFromPhone(event, 'propTiktok')">
-        <button type="button" class="btn-video" style="width:100%; margin-top:8px;" onclick="document.getElementById('addVideoFile').click()">
-          📹 Upload Video from Phone
-        </button>
-        <div class="upload-progress" id="addVideoProgress">
-          <div class="bar"><div class="fill" id="addVideoProgressFill"></div></div>
-          <div class="label" id="addVideoProgressLabel">Preparing...</div>
-        </div>
-      </div>
-
-      <div class="field">
-        <label>Property Photos (Optional if video is provided)</label>
-        <label class="image-upload" for="propImages">
-          <input type="file" id="propImages" accept="image/*" multiple onchange="handleImageSelect(event)">
-          <div class="upload-icon">📷</div>
-          <div class="upload-text">Tap to select photos from your gallery</div>
-        </label>
-        <div class="image-preview" id="imagePreview"></div>
-      </div>
-
-      <button class="btn btn-primary" style="width: 100%; padding: 15px; margin-top: 6px; font-size:14px;" id="addPropBtn" onclick="addProperty()">
-        🚀 Add Property
+    <div class="field">
+      <label>Description</label>
+      <textarea id="propDescription" placeholder="Describe the property..."></textarea>
+      <button type="button" class="btn-ai-desc" id="propGenDescBtn" onclick="generateDescForAdd()">
+        ✨ Generate Description with AI
       </button>
     </div>
+
+    <div class="field">
+      <label>📞 Agent Phone Number (Optional)</label>
+      <input type="tel" id="propAgentPhone" placeholder="e.g., 0712345678">
+    </div>
+
+    <!-- LANDLORD INFO -->
+    <div style="background:var(--accent-light); padding:14px; border-radius:12px; margin-bottom:16px; border:1px solid rgba(59,130,246,0.25);">
+      <div style="font-size:12.5px; color:var(--accent-dark); font-weight:800; margin-bottom:10px;">
+        🏠 Landlord Information (Required)
+      </div>
+      <div class="field" style="margin-bottom:10px;">
+        <label>Landlord Full Name *</label>
+        <input type="text" id="propLandlordName" placeholder="e.g., Peter Kamau">
+      </div>
+      <div class="field" style="margin-bottom:10px;">
+        <label>Landlord Phone *</label>
+        <input type="tel" id="propLandlordPhone" placeholder="e.g., 0722334455">
+      </div>
+      <div class="field" style="margin-bottom:0;">
+        <label>Landlord Email (Optional — for account creation)</label>
+        <input type="email" id="propLandlordEmail" placeholder="e.g., peter@gmail.com">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>🎬 Video Tour URL (Cloudinary, TikTok, YouTube, or MP4)</label>
+      <input type="url" id="propTiktok" placeholder="Paste video URL">
+      <input type="file" id="addVideoFile" accept="video/*" style="display:none;" onchange="uploadVideoFromPhone(event, 'propTiktok')">
+      <button type="button" class="btn-video" style="width:100%; margin-top:8px;" onclick="document.getElementById('addVideoFile').click()">
+        📹 Upload Video from Phone
+      </button>
+      <button type="button" class="btn-tiktok" style="width:100%; margin-top:8px;" onclick="downloadFromTikTok('propTiktok')">
+        📥 Download & Save from TikTok
+      </button>
+      <div class="upload-progress" id="addVideoProgress">
+        <div class="bar"><div class="fill" id="addVideoProgressFill"></div></div>
+        <div class="label" id="addVideoProgressLabel">Preparing...</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Property Photos (Optional if video is provided)</label>
+      <label class="image-upload" for="propImages">
+        <input type="file" id="propImages" accept="image/*" multiple onchange="handleImageSelect(event)">
+        <div class="upload-icon">📷</div>
+        <div class="upload-text">Tap to select photos from your gallery</div>
+      </label>
+      <div class="image-preview" id="imagePreview"></div>
+    </div>
+
+    <button class="btn btn-primary" style="width: 100%; padding: 15px; margin-top: 6px; font-size:14px;" id="addPropBtn" onclick="addProperty()">
+      🚀 Add Property
+    </button>
+  </div>
+</div>
+
+<!-- ============================================================
+     PANEL 3: MY PROPERTIES (with bulk delete)
+     ============================================================ -->
+<div class="panel" id="panel-properties">
+  <div class="section-header">
+    <h2>🏠 My Listed Properties</h2>
+    <span class="count" id="propListCount">-</span>
   </div>
 
-  <!-- ============================================================
-       PANEL 3: MY PROPERTIES (with bulk delete)
-       ============================================================ -->
-  <div class="panel" id="panel-properties">
-    <div class="section-header">
-      <h2>🏠 My Listed Properties</h2>
-      <span class="count" id="propListCount">-</span>
+  <!-- BULK DELETE BAR -->
+  <div class="bulk-delete-bar" id="bulkDeleteBar">
+    <div class="info">
+      <span>🗑️</span>
+      <span>Selected:</span>
+      <span class="count-pill" id="selectedCount">0</span>
     </div>
-
-    <!-- BULK DELETE BAR -->
-    <div class="bulk-delete-bar" id="bulkDeleteBar">
-      <div class="info">
-        <span>🗑️</span>
-        <span>Selected:</span>
-        <span class="count-pill" id="selectedCount">0</span>
-      </div>
-      <div class="actions">
-        <button class="btn btn-outline" onclick="deselectAll()">✕ Deselect</button>
-        <button class="btn btn-danger" onclick="deleteSelectedProperties()">🗑️ Delete Selected</button>
-      </div>
-    </div>
-
-    <!-- SELECT ALL ROW -->
-    <label class="select-all-row" id="selectAllRow" onclick="toggleSelectAll(event)">
-      <input type="checkbox" id="selectAllCheckbox">
-      <span class="label">Select All</span>
-    </label>
-
-    <div id="propertiesList">
-      <div class="loading"><div class="spinner"></div>Loading...</div>
+    <div class="actions">
+      <button class="btn btn-outline" onclick="deselectAll()">✕ Deselect</button>
+      <button class="btn btn-danger" onclick="deleteSelectedProperties()">🗑️ Delete Selected</button>
     </div>
   </div>
 
-  <!-- ============================================================
+  <!-- SELECT ALL ROW -->
+  <label class="select-all-row" id="selectAllRow" onclick="toggleSelectAll(event)">
+    <input type="checkbox" id="selectAllCheckbox">
+    <span class="label">Select All</span>
+  </label>
+
+  <div id="propertiesList">
+    <div class="loading"><div class="spinner"></div>Loading...</div>
+  </div>
+</div>  <!-- ============================================================
        PANEL 4: LANDMARKS
        ============================================================ -->
   <div class="panel" id="panel-landmarks">
@@ -885,7 +889,9 @@
       <div class="loading"><div class="spinner"></div>Loading landmarks...</div>
     </div>
   </div>
-</div><!-- ============================================================
+</div>
+
+<!-- ============================================================
      EDIT PROPERTY MODAL
      ============================================================ -->
 <div class="modal-overlay" id="editModal">
@@ -971,6 +977,9 @@
       <input type="file" id="editVideoFile" accept="video/*" style="display:none;" onchange="uploadVideoFromPhone(event, 'editTiktok')">
       <button type="button" class="btn-video" style="width:100%; margin-top:8px;" onclick="document.getElementById('editVideoFile').click()">
         📹 Upload Video from Phone
+      </button>
+      <button type="button" class="btn-tiktok" style="width:100%; margin-top:8px;" onclick="downloadFromTikTok('editTiktok')">
+        📥 Download & Save from TikTok
       </button>
       <div class="upload-progress" id="editVideoProgress">
         <div class="bar"><div class="fill" id="editVideoProgressFill"></div></div>
@@ -1300,6 +1309,70 @@ async function uploadVideoFromPhone(event, targetInputId) {
       errEl.style.display = 'block';
     } else {
       alert('Video upload failed: ' + e.message);
+    }
+  }
+}
+
+// ============================================================
+// DOWNLOAD VIDEO FROM TIKTOK URL
+// ============================================================
+async function downloadFromTikTok(targetInputId) {
+  const urlInput = document.getElementById(targetInputId);
+  const url = urlInput.value.trim();
+
+  if (!url || (!url.includes('tiktok.com') && !url.includes('vt.tiktok'))) {
+    alert('Please paste a TikTok URL in the field above first.');
+    return;
+  }
+
+  const isEdit = targetInputId === 'editTiktok';
+  const progressBox = document.getElementById(isEdit ? 'editVideoProgress' : 'addVideoProgress');
+  const progressFill = document.getElementById(isEdit ? 'editVideoProgressFill' : 'addVideoProgressFill');
+  const progressLabel = document.getElementById(isEdit ? 'editVideoProgressLabel' : 'addVideoProgressLabel');
+  const errEl = document.getElementById(isEdit ? 'editError' : 'addPropError');
+
+  progressBox.classList.add('show');
+  progressFill.style.width = '15%';
+  progressLabel.textContent = '📥 Connecting to TikTok...';
+
+  let fakeProgress = 15;
+  const fakeTimer = setInterval(() => {
+    fakeProgress = Math.min(fakeProgress + 2, 90);
+    progressFill.style.width = fakeProgress + '%';
+    if (fakeProgress < 40) progressLabel.textContent = '📥 Downloading from TikTok...';
+    else if (fakeProgress < 70) progressLabel.textContent = '☁️ Uploading to Cloudinary...';
+    else progressLabel.textContent = '✨ Almost done...';
+  }, 500);
+
+  try {
+    const res = await api('/api/download-tiktok', {
+      method: 'POST',
+      body: JSON.stringify({ tiktok_url: url })
+    });
+
+    clearInterval(fakeTimer);
+    progressFill.style.width = '100%';
+    progressLabel.textContent = `✅ Saved! (${res.size_mb} MB)`;
+
+    urlInput.value = res.url;
+
+    if (errEl) errEl.style.display = 'none';
+
+    setTimeout(() => {
+      progressBox.classList.remove('show');
+      progressFill.style.width = '0%';
+    }, 2500);
+
+  } catch (e) {
+    clearInterval(fakeTimer);
+    progressBox.classList.remove('show');
+    progressFill.style.width = '0%';
+
+    if (errEl) {
+      errEl.textContent = 'TikTok download failed: ' + e.message;
+      errEl.style.display = 'block';
+    } else {
+      alert('TikTok download failed: ' + e.message);
     }
   }
 }
