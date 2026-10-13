@@ -439,7 +439,7 @@ const LOCATIONS = {
   nairobiAreas: ['kilimani','karen','westlands','lavington','kileleshwa','runda','muthaiga','parklands','kasarani','embakasi','langata','south b','south c','roysambu','ngara','ngong','donholm','umoja','buruburu','eastleigh','pangani','highridge','spring valley','kitisuru','ruaka','kikuyu','gigiri','riverside','ridgeways','jamhuri','dagoretti','kawangware','kangemi','industrial area','cbd','upperhill','hurlingham','yaya','garden estate','kabete','kinoo','uthiru','kahawa','zimmerman','kamulu','ruai','utawala','syokimau','mlolongo','athi river','kitengela','kiserian','ongata rongai','membley','nyari','loresho','kyuna','pipeline','dandora','githurai','mwiki','kariobangi','huruma','mathare','korogocho'],
   mombasaAreas: ['nyali','bamburi','shanzu','kizingo','tudor','likoni','mkomani','kipevu','miritini','changamwe','magongo','bombolulu','maweni','mtwapa','diani','ukunda','msambweni','kilifi','malindi','watamu','galu','tiwi'],
   nakuruAreas: ['milimani','section 58','kiamunyi','lanet','ngata','bahati','kabachia','flamingo','kivumbini','rhoda','shabab','mawanga','free area','nakuru cbd'],
-  kiambuAreas: ['ruiru','juja','githurai','kahawa west','kahawa sukari','kiambu town','kikuyu','limuru','wangige','gikambura','ndenderu','kanjeru','thome','kiambu road','juja farm','ndenderu','ruaka'],
+  kiambuAreas: ['ruiru','juja','githurai','kahawa west','kahawa sukari','kiambu town','kikuyu','limuru','wangige','gikambura','ndenderu','kanjeru','thome','kiambu road','juja farm','ruaka'],
   thikaAreas: ['thika town','thika road','gatundu','kiganjo','mang\'u','kiandutu','makongeni','section 9','landless','kamenu']
 };
 
@@ -496,7 +496,7 @@ const LANDMARKS = [
   { match: ['nyayo stadium'], tag: 'Nyayo Stadium' },
   { match: ['kicc'], tag: 'KICC' },
   { match: ['mwiki market','mwiki'], tag: 'Mwiki Market' },
-  { match: ['umoja market','umoja'], tag: 'Umoja Market' },
+  { match: ['umoja market'], tag: 'Umoja Market' },
   { match: ['eastleigh mall'], tag: 'Eastleigh Mall' },
   { match: ['githurai market'], tag: 'Githurai Market' },
   { match: ['kahawa sukari'], tag: 'Kahawa Sukari' },
@@ -554,7 +554,7 @@ function generateFallbackDescription(p) {
 }
 
 // ============================================================
-// PARSE PROPERTY TEXT (with unit label detection)
+// PARSE PROPERTY TEXT (with unitLabel detection)
 // ============================================================
 function parsePropertyText(text) {
   const t = String(text).trim();
@@ -580,9 +580,7 @@ function parsePropertyText(text) {
     }
   }
 
-  // ============================================================
-  // UNIT TYPE DETECTION (Studio / Bedsitter / Single Room / X Bedroom)
-  // ============================================================
+  // UNIT TYPE DETECTION
   let bedrooms = 0;
   let unitLabel = 'Studio';
 
@@ -680,7 +678,7 @@ function parsePropertyText(text) {
 }
 
 // ============================================================
-// AI DESCRIPTION GENERATOR (uses correct unit label)
+// AI DESCRIPTION GENERATOR (sends unitLabel to server)
 // ============================================================
 async function generateAIDescription(prop) {
   try {
@@ -692,9 +690,9 @@ async function generateAIDescription(prop) {
         price: prop.price,
         bedrooms: prop.bedrooms,
         bathrooms: prop.bathrooms,
+        unitLabel: prop.unitLabel,
         type: prop.type,
-        landmarks: prop.landmarks,
-        unitLabel: prop.unitLabel
+        landmarks: prop.landmarks
       })
     });
     if (res.ok && res.description) return { description: res.description, source: 'ai' };
@@ -1068,12 +1066,24 @@ async function addAllProperties() {
       const images = (p.userPhotos && p.userPhotos.length > 0) ? p.userPhotos : p.images;
       const unitDisplay = p.unitLabel || (p.bedrooms === 0 ? 'Studio' : p.bedrooms + ' Bedroom');
 
-      // Build a title that includes the unit type if not already there
+      // Build a clean title that includes the unit type
       let finalTitle = p.title;
       const lowerTitle = finalTitle.toLowerCase();
-      if (!lowerTitle.includes(p.unitLabel ? p.unitLabel.toLowerCase() : 'studio')) {
+      const lowerUnit = (p.unitLabel || 'studio').toLowerCase();
+
+      if (!lowerTitle.includes(lowerUnit)) {
         // Prepend unit type if missing
-        finalTitle = unitDisplay + ' in ' + p.location.split(',')[0];
+        finalTitle = unitDisplay + ' in ' + p.location.split(',')[0].trim();
+      } else {
+        // Title already includes unit type - just shorten it
+        // Remove trailing details like price, agent, "near X"
+        finalTitle = finalTitle
+          .replace(/,\s*\d+k?\s*/i, ' ')
+          .replace(/,\s*near .+$/i, '')
+          .replace(/,\s*agent .+$/i, '')
+          .replace(/,\s*\d{4,}\s*/g, ' ')
+          .trim();
+        if (finalTitle.length > 60) finalTitle = finalTitle.slice(0, 60).trim();
       }
 
       await api('/api/properties', {
@@ -1085,6 +1095,7 @@ async function addAllProperties() {
           price: p.price || 0,
           bedrooms: p.bedrooms,
           bathrooms: p.bathrooms,
+          unitLabel: p.unitLabel || null,
           type: p.type,
           tiktok_url: p.tiktok_url,
           agent_phone: p.agent_phone || null,
