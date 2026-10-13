@@ -949,7 +949,7 @@
 .pv-video-vertical {
   position: relative;
   width: 100%;
-  max-width: 380px;
+  max-width: 100%;
   margin: 0 auto;
   aspect-ratio: 9/16;
   max-height: 620px;
@@ -961,6 +961,8 @@
   width: 100%;
   height: 100%;
   border: none;
+  object-fit: cover;
+  background: #000;
 }
 .pv-video-actions { text-align: center; margin-top: 8px; }
 .pv-video-link {
