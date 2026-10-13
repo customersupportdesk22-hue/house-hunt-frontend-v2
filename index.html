@@ -2691,7 +2691,43 @@ function buildViewingSuccessHTML(name, reference) {
 }
 
 function buildLandlordSuccessHTML(name, reference, landlordPhone) {
-  const waText = encodeURIComponent('Hi, I just submitted a landlord enquiry with reference ' + reference + '. My name is ' + name + '. I would like to confirm my interest.');
+  const property = state.selectedProperty || {};
+  const moveIn = document.getElementById('landlordMoveIn') ? document.getElementById('landlordMoveIn').value : '';
+  const userMessage = document.getElementById('landlordMessage') ? document.getElementById('landlordMessage').value.trim() : '';
+  const phone = localStorage.getItem('hh_phone') || '';
+
+  let waMessage = 
+    'Hello,\n\n' +
+    'My name is ' + name + '. I am interested in renting your property listed on HouseHunt Kenya:\n\n' +
+    '🏠 Property: ' + (property.title || 'Property') + '\n' +
+    '📍 Location: ' + (property.location || 'Kenya') + '\n' +
+    '💰 Rent: KES ' + Number(property.price || 0).toLocaleString() + (property.type === 'rent' ? ' /month' : '') + '\n' +
+    '🆔 Reference: ' + reference + '\n';
+
+  // Add landmarks
+  if (property.landmarks && property.landmarks.length > 0) {
+    waMessage += '\n📍 Nearby Landmarks:\n';
+    property.landmarks.slice(0, 5).forEach(lm => {
+      waMessage += '• ' + lm + '\n';
+    });
+  }
+
+  if (moveIn) waMessage += '\n📅 Move-in: ' + moveIn + '\n';
+
+  waMessage += 
+    '\n📋 Before we proceed, I would like to know:\n' +
+    '• Is water available?\n' +
+    '• How is electricity charged (included / pay-as-you-go / shared)?\n' +
+    '• How much is the deposit and rent advance?\n' +
+    '• What security is available (guard / gated / CCTV)?\n' +
+    '• Are there any other monthly charges?\n';
+
+  if (userMessage) waMessage += '\n💬 My note: ' + userMessage + '\n';
+  if (phone) waMessage += '\n📞 You can reach me at: ' + phone + '\n';
+
+  waMessage += '\nThank you, I look forward to your response.';
+
+  const waText = encodeURIComponent(waMessage);
 
   // Landlord WhatsApp: 0143732903 → 254143732903
   const waNumber = '254143732903';
