@@ -2011,7 +2011,7 @@ function renderSlideCard(p, isNearby = false) {
   const playButton = p.tiktok_url ? '<div class="video-play-overlay"></div>' : '';
   const videoBadge = p.tiktok_url ? '<span class="badge-video">▶ Video</span>' : '';
   const heartActive = state.savedFavorites.includes(p.id);
-  const bedLabel = (p.bedrooms === 0 || p.bedrooms === '0') ? 'Studio' : p.bedrooms + ' Bed';
+  const bedLabel = p.unitLabel || ((p.bedrooms === 0 || p.bedrooms === '0') ? 'Studio' : p.bedrooms + ' Bed');
 
   return `
     <div class="slide-card" onclick="openPropertyView('${p.id}')">
@@ -2055,7 +2055,7 @@ function renderPropertyCard(p) {
   const playButton = p.tiktok_url
     ? '<div class="video-play-overlay"></div><div class="click-to-watch-hint">👆 Click to Watch</div>'
     : '';
-  const bedLabel = (p.bedrooms === 0 || p.bedrooms === '0') ? 'Studio' : p.bedrooms + ' <span class="dim">bd</span>';
+  const bedLabel = p.unitLabel || ((p.bedrooms === 0 || p.bedrooms === '0') ? 'Studio' : p.bedrooms + ' <span class="dim">bd</span>');
 
   return `
     <div class="property-card" onclick="openPropertyView('${p.id}')">
@@ -2334,7 +2334,7 @@ function openPropertyView(propertyId) {
   document.getElementById('pvPrice').innerHTML = 'Ksh ' + Number(p.price).toLocaleString() + priceSuffix;
   document.getElementById('pvTitle').textContent = p.title;
   document.getElementById('pvLocation').innerHTML = '<span class="pin">📍</span> ' + escapeHtml(p.location);
-  document.getElementById('pvBeds').textContent = (p.bedrooms === 0 || p.bedrooms === '0') ? 'Studio' : p.bedrooms;
+  document.getElementById('pvBeds').textContent = p.unitLabel || ((p.bedrooms === 0 || p.bedrooms === '0') ? 'Studio' : p.bedrooms);
   document.getElementById('pvBaths').textContent = p.bathrooms;
   document.getElementById('pvTypeLabel').textContent = p.type === 'sale' ? 'Sale' : 'Rent';
   document.getElementById('pvDescription').textContent = p.description || 'No description provided.';
