@@ -8,13 +8,12 @@
 <meta name="description" content="Find your ideal home faster in Kenya. Quality houses matching your budget, location, and preferences.">
 <style>
   :root {
-    /* LIGHT THEME */
     --bg: #f5f5f7;
     --card: #ffffff;
     --card-hover: #fafafa;
-    --accent: #3b82f6;
-    --accent-dark: #2563eb;
-    --accent-light: #dbeafe;
+    --accent: #1a6b3c;       /* Brand Green */
+    --accent-dark: #14532d;  /* Darker Green for hover */
+    --accent-light: #e8f5e9; /* Very light green for backgrounds */
     --text: #111827;
     --text-strong: #000000;
     --muted: #6b7280;
@@ -43,46 +42,42 @@
     padding-bottom: 80px;
     -webkit-font-smoothing: antialiased;
   }
-  .container { max-width: 1100px; margin: 0 auto; padding: 0 12px; }
-  
-  /* HEADER — WHITE */
-  header {
-    background: #ffffff;
-    padding: 12px 0;
-    position: sticky; top: 0; z-index: 100;
-    border-bottom: 1px solid var(--border);
-    box-shadow: var(--shadow-sm);
-  }
-  .header-inner {
-    display: flex; justify-content: space-between; align-items: center; gap: 12px;
-  }
-  .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; }
-  .logo img { height: 38px; width: 38px; border-radius: 50%; object-fit: cover; background: white; }
-  .logo .logo-text { display: flex; flex-direction: column; line-height: 1.15; }
-  .logo .logo-text .main { font-size: 15px; font-weight: 800; letter-spacing: -0.3px; color: var(--text); }
-  .logo .logo-text .main span { color: var(--accent); }
-  .logo .logo-text .sub { font-size: 9px; color: var(--muted); font-weight: 600; letter-spacing: 0.4px; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 12px; }header {
+  background: #ffffff;
+  padding: 12px 0;
+  position: sticky; top: 0; z-index: 100;
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+.header-inner {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+}
+.logo { display: flex; align-items: center; gap: 8px; font-weight: 800; }
+.logo img { height: 38px; width: 38px; border-radius: 50%; object-fit: cover; background: white; }
+.logo .logo-text { display: flex; flex-direction: column; line-height: 1.15; }
+.logo .logo-text .main { font-size: 15px; font-weight: 800; letter-spacing: -0.3px; color: var(--text); }
+.logo .logo-text .main span { color: var(--accent); }
+.logo .logo-text .sub { font-size: 9px; color: var(--muted); font-weight: 600; letter-spacing: 0.4px; }
 
-  /* BUTTONS */
-  .btn {
-    padding: 9px 14px; border-radius: 8px; border: none;
-    font-weight: 700; font-size: 12px; cursor: pointer;
-    transition: all 0.2s; white-space: nowrap;
-  }
-  .btn-primary { background: var(--accent); color: white; }
-  .btn-primary:hover { background: var(--accent-dark); }
-  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
-  .btn-outline {
-    background: white; color: var(--text);
-    border: 1px solid var(--border-dark);
-  }
-  .btn-outline:hover { background: var(--bg); }
+.btn {
+  padding: 9px 14px; border-radius: 8px; border: none;
+  font-weight: 700; font-size: 12px; cursor: pointer;
+  transition: all 0.2s; white-space: nowrap;
+}
+.btn-primary { background: var(--accent); color: white; }
+.btn-primary:hover { background: var(--accent-dark); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-outline {
+  background: white; color: var(--text);
+  border: 1px solid var(--border-dark);
+}
+.btn-outline:hover { background: var(--bg); }
 
-  /* HERO */
-  .hero { padding: 28px 0 12px; text-align: center; }
-  .hero h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.7px; line-height: 1.15; color: var(--text); }
-  .hero h1 span { color: var(--accent); }
-  .hero p { color: var(--muted); font-size: 13px; margin-bottom: 20px; }/* ============ SEARCH PANEL (Simplified — Only Find Near Me) ============ */
+.hero { padding: 28px 0 12px; text-align: center; }
+.hero h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.7px; line-height: 1.15; color: var(--text); }
+.hero h1 span { color: var(--accent); }
+.hero p { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+
 .search-panel {
   background: var(--card);
   border: 1px solid var(--border);
@@ -125,10 +120,7 @@
 .near-me-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-}
-
-/* TRUST STRIP */
-.trust-strip {
+}.trust-strip {
   display: flex; gap: 6px; padding: 14px 0 4px;
   overflow-x: auto; scrollbar-width: none;
   justify-content: center; flex-wrap: nowrap;
@@ -146,7 +138,6 @@
 }
 .trust-pill span:first-child { color: var(--success); }
 
-/* FILTER CHIPS */
 .filters {
   display: flex; gap: 8px; overflow-x: auto; padding: 14px 0 8px;
   scrollbar-width: none;
@@ -165,7 +156,6 @@
   color: white;
 }
 
-/* SECTION TITLES */
 .section-title {
   display: flex; justify-content: space-between; align-items: center;
   margin: 24px 0 12px;
@@ -203,7 +193,6 @@
   border: 1px solid var(--border-dark);
 }
 
-/* VERIFIED AGENTS BADGE */
 .verified-agents-badge {
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--success-bg);
@@ -226,13 +215,7 @@
 @keyframes verifiedPulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(1.3); }
-}/* ============ PROPERTY CARDS (Grid Version — Light Theme) ============ */
-.featured-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
-.grid {
+}.featured-grid, .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
@@ -269,7 +252,6 @@
 }
 .property-card:hover .property-img { transform: scale(1.05); }
 
-/* VIDEO PLAY OVERLAY */
 .video-play-overlay {
   position: absolute;
   top: 50%; left: 50%;
@@ -302,30 +284,9 @@
   50% { transform: translate(-50%, -50%) scale(1.1); }
 }
 
-.click-to-watch-hint {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(4px);
-  color: white;
-  font-size: 9.5px;
-  font-weight: 800;
-  padding: 4px 10px;
-  border-radius: 20px;
-  white-space: nowrap;
-  z-index: 4;
-  pointer-events: none;
-  letter-spacing: 0.5px;
-  animation: watchPulse 1.8s ease-in-out infinite;
-}
-@keyframes watchPulse {
-  0%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
-  50% { opacity: 0.75; transform: translateX(-50%) scale(1.06); }
-}
+/* HIDDEN: Click to watch hint */
+.click-to-watch-hint { display: none !important; }
 
-/* BADGES */
 .badge-overlay {
   position: absolute; top: 10px; left: 10px;
   background: rgba(20, 184, 166, 0.95);
@@ -385,7 +346,6 @@
   box-shadow: 0 2px 8px rgba(59,130,246,0.3);
 }
 
-/* AVAILABLE / RENTED status (bottom-left) */
 .badge-status {
   position: absolute; bottom: 10px; left: 10px;
   padding: 4px 10px;
@@ -407,7 +367,9 @@
   border: 1px solid rgba(220,38,38,0.2);
 }
 
-/* PROPERTY INFO */
+/* HIDDEN: Available badge to reduce clutter */
+.badge-status.available { display: none !important; }
+
 .property-info {
   padding: 12px 12px 14px;
   display: flex;
@@ -471,10 +433,7 @@
 .property-specs .dim {
   color: var(--muted);
   font-weight: 500;
-}
-
-/* LOADER / EMPTY */
-.loader {
+}.loader {
   text-align: center;
   padding: 60px 20px;
   color: var(--muted);
@@ -500,7 +459,8 @@
   font-size: 48px;
   margin-bottom: 12px;
   opacity: 0.5;
-}/* ============ SLIDE LAYOUT (Featured + Near You) ============ */
+}
+
 .slide-wrapper {
   position: relative;
   margin: 0 -12px;
@@ -577,7 +537,6 @@
   padding-top: 12px;
 }
 
-/* HEART BUTTON on slide cards */
 .slide-heart {
   position: absolute;
   top: 12px;
@@ -600,7 +559,6 @@
 .slide-heart:hover { transform: scale(1.1); }
 .slide-heart.active { color: var(--danger); }
 
-/* SLIDE DOTS (pagination indicator) */
 .slide-dots {
   display: flex;
   justify-content: center;
@@ -622,7 +580,6 @@
   border-radius: 3px;
 }
 
-/* SLIDE NAV ARROWS (desktop only) */
 .slide-arrow {
   display: none;
   position: absolute;
@@ -648,18 +605,7 @@
   border-color: var(--accent);
 }
 .slide-arrow.left { left: 8px; }
-.slide-arrow.right { right: 8px; }
-
-@media (min-width: 768px) {
-  .slide-arrow { display: flex; }
-  .slide-card {
-    flex: 0 0 calc(33.333% - 8px);
-    max-width: none;
-  }
-}
-
-/* NEAR YOU SECTION wrapper */
-.near-you-section {
+.slide-arrow.right { right: 8px; }.near-you-section {
   display: none;
   margin-top: 20px;
   padding: 16px;
@@ -704,7 +650,8 @@
   font-size: 12px;
   color: var(--muted);
   margin-bottom: 14px;
-}/* ============ PROPERTY DETAIL VIEW (Light Theme) ============ */
+}
+
 .property-view {
   position: fixed; inset: 0;
   background: var(--bg);
@@ -736,9 +683,7 @@
   display: flex; align-items: center; gap: 6px;
   transition: all 0.2s;
 }
-.pv-back:hover {
-  background: var(--bg);
-}
+.pv-back:hover { background: var(--bg); }
 .pv-actions { display: flex; gap: 8px; }
 .pv-icon-btn {
   background: white;
@@ -754,31 +699,13 @@
 .pv-icon-btn:hover { background: var(--bg); }
 .pv-icon-btn.active { color: var(--danger); border-color: var(--danger); background: var(--danger-bg); }
 
-/* HERO IMAGE */
-.pv-hero {
-  position: relative;
-  width: 100%;
-  background: #000;
-}
-.pv-hero-img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  display: block;
-}
-.pv-badges {
-  position: absolute; top: 12px; left: 12px;
-  display: flex; gap: 8px;
-}
+.pv-hero { position: relative; width: 100%; background: #000; }
+.pv-hero-img { width: 100%; height: 320px; object-fit: cover; display: block; }
+.pv-badges { position: absolute; top: 12px; left: 12px; display: flex; gap: 8px; }
 .pv-badge {
-  background: white;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  background: white; padding: 6px 12px; border-radius: 8px;
+  font-size: 10.5px; font-weight: 800; letter-spacing: 0.5px;
+  text-transform: uppercase; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .pv-badge.verified { color: var(--success); border: 1px solid var(--success-bg); }
 .pv-badge.type-rent { color: var(--teal); }
@@ -786,475 +713,174 @@
 
 .pv-counter {
   position: absolute; bottom: 12px; right: 12px;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(6px);
   padding: 6px 12px; border-radius: 8px;
   font-size: 12px; font-weight: 700; color: white;
   display: flex; align-items: center; gap: 6px;
 }
 
 .pv-autoplay-bar {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 3px;
-  background: rgba(255,255,255,0.25);
-  overflow: hidden;
+  position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: rgba(255,255,255,0.25); overflow: hidden;
 }
 .pv-autoplay-fill {
-  height: 100%;
-  width: 0%;
-  background: var(--accent);
-  transition: width 0.1s linear;
+  height: 100%; width: 0%;
+  background: var(--accent); transition: width 0.1s linear;
 }
 
-/* THUMBNAILS */
 .pv-thumbs {
   display: flex; gap: 8px; padding: 12px 14px;
   overflow-x: auto; scrollbar-width: none;
-  background: white;
-  border-bottom: 1px solid var(--border);
+  background: white; border-bottom: 1px solid var(--border);
 }
 .pv-thumbs::-webkit-scrollbar { display: none; }
 .pv-thumb {
-  flex-shrink: 0;
-  width: 64px; height: 64px;
+  flex-shrink: 0; width: 64px; height: 64px;
   border-radius: 10px; overflow: hidden;
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: border-color 0.2s;
+  border: 2px solid transparent; cursor: pointer; transition: border-color 0.2s;
 }
 .pv-thumb.active { border-color: var(--accent); }
 .pv-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
-/* CONTENT */
-.pv-content {
-  padding: 20px 14px 60px;
-  max-width: 800px;
-  margin: 0 auto;
-  width: 100%;
-}
-.pv-price {
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--price);
-  letter-spacing: -0.5px;
-}
-.pv-price .per {
-  font-size: 13px;
-  color: var(--muted);
-  font-weight: 600;
-  margin-left: 4px;
-}
-.pv-title {
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.4px;
-  margin: 10px 0 8px;
-  line-height: 1.25;
-  color: var(--text);
-}
-.pv-loc {
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
+.pv-content { padding: 20px 14px 60px; max-width: 800px; margin: 0 auto; width: 100%; }
+.pv-price { font-size: 26px; font-weight: 800; color: var(--price); letter-spacing: -0.5px; }
+.pv-price .per { font-size: 13px; color: var(--muted); font-weight: 600; margin-left: 4px; }
+.pv-title { font-size: 22px; font-weight: 800; letter-spacing: -0.4px; margin: 10px 0 8px; line-height: 1.25; color: var(--text); }
+.pv-loc { font-size: 14px; color: var(--muted); margin-bottom: 20px; display: flex; align-items: center; gap: 5px; }
 .pv-loc .pin { color: var(--accent); }
 
-.pv-specs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-bottom: 24px;
-}
-.pv-spec {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 14px 8px;
-  text-align: center;
-  box-shadow: var(--shadow-sm);
-}
+.pv-specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 24px; }
+.pv-spec { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 14px 8px; text-align: center; box-shadow: var(--shadow-sm); }
 .pv-spec .icon { font-size: 20px; margin-bottom: 6px; }
 .pv-spec .value { font-size: 16px; font-weight: 800; margin-bottom: 3px; color: var(--text); }
-.pv-spec .label {
-  font-size: 10px;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-weight: 700;
-}
+.pv-spec .label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; }
 
-.pv-section-title {
-  font-size: 13px;
-  font-weight: 800;
-  margin: 24px 0 12px;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.pv-desc {
-  font-size: 14px;
-  color: var(--text);
-  line-height: 1.7;
-  white-space: pre-line;
-}
+.pv-section-title { font-size: 13px; font-weight: 800; margin: 24px 0 12px; letter-spacing: 0.6px; text-transform: uppercase; color: var(--muted); }
+.pv-desc { font-size: 14px; color: var(--text); line-height: 1.7; white-space: pre-line; }
 
-/* CONNECT CARD (2 Buttons) */
-.pv-book-card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 20px;
-  margin-top: 26px;
-  box-shadow: var(--shadow-sm);
-}
-.pv-book-card h3 {
-  font-size: 16px;
-  font-weight: 800;
-  margin-bottom: 6px;
-  color: var(--text);
-}
-.pv-book-card p {
-  color: var(--muted);
-  font-size: 13px;
-  margin-bottom: 16px;
-}
+.pv-book-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin-top: 26px; box-shadow: var(--shadow-sm); }
+.pv-book-card h3 { font-size: 16px; font-weight: 800; margin-bottom: 6px; color: var(--text); }
+.pv-book-card p { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
 
-/* VIDEO WRAP */
-.pv-video-wrap {
-  background: #000;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-  margin-bottom: 12px;
-  position: relative;
-}
-.pv-video-16x9 {
-  position: relative;
-  width: 100%;
-  padding-top: 177.77%;
-  background: #000;
-}
-.pv-video-16x9 iframe,
-.pv-video-16x9 video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  background: #000;
-  object-fit: cover;
-}
-.pv-video-vertical {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  aspect-ratio: 9/16;
-  max-height: 620px;
-  background: #000;
-}
-.pv-video-vertical iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  object-fit: cover;
-  background: #000;
-}
+.pv-video-wrap { background: #000; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 12px; position: relative; }
+.pv-video-16x9 { position: relative; width: 100%; padding-top: 177.77%; background: #000; }
+.pv-video-16x9 iframe, .pv-video-16x9 video { position: absolute; inset: 0; width: 100%; height: 100%; border: none; background: #000; object-fit: cover; }
+.pv-video-vertical { position: relative; width: 100%; max-width: 100%; margin: 0 auto; aspect-ratio: 9/16; max-height: 620px; background: #000; }
+.pv-video-vertical iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; object-fit: cover; background: #000; }
 .pv-video-actions { text-align: center; margin-top: 8px; }
-.pv-video-link {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 13px; font-weight: 700;
-  color: var(--accent); text-decoration: none;
-  padding: 8px 16px;
-  background: var(--accent-light);
-  border: 1px solid rgba(59,130,246,0.3);
-  border-radius: 20px;
-}
-.pv-video-fallback {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 32px 20px;
-  text-align: center;
-  box-shadow: var(--shadow-sm);
-}
+.pv-video-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--accent); text-decoration: none; padding: 8px 16px; background: var(--accent-light); border: 1px solid rgba(59,130,246,0.3); border-radius: 20px; }
+.pv-video-fallback { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 32px 20px; text-align: center; box-shadow: var(--shadow-sm); }
 .pv-video-fallback .icon { font-size: 52px; margin-bottom: 12px; display: block; }
 .pv-video-fallback .title { font-size: 16px; font-weight: 800; margin-bottom: 6px; color: var(--text); }
 .pv-video-fallback .subtitle { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
-.pv-video-fallback .watch-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--accent);
-  color: white; padding: 12px 22px;
-  border-radius: 10px; font-size: 13.5px; font-weight: 800;
-  text-decoration: none;
-  box-shadow: 0 6px 20px rgba(59,130,246,0.35);
-}/* ============ MODALS (Light Theme) ============ */
-.modal-overlay {
-  position: fixed; inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  z-index: 3000;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-.modal-overlay.show { display: flex; }
-
-.modal {
-  background: white;
-  border-radius: 18px;
-  padding: 24px;
-  max-width: 440px;
-  width: 100%;
-  border: 1px solid var(--border);
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-}
-.modal h2 {
-  font-size: 20px;
-  margin-bottom: 8px;
-  letter-spacing: -0.3px;
-  color: var(--text);
-  font-weight: 800;
-}
-.modal p {
-  color: var(--muted);
-  font-size: 13.5px;
-  margin-bottom: 18px;
-  line-height: 1.5;
-}
-
-/* FORM FIELDS */
-.field { margin-bottom: 14px; }
-.field label {
-  display: block;
-  font-size: 12px;
-  color: var(--muted);
-  margin-bottom: 6px;
-  font-weight: 700;
-}
-.field input,
-.field select,
-.field textarea {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 10px;
-  background: white;
-  border: 1px solid var(--border-dark);
-  color: var(--text);
-  font-size: 14px;
-  outline: none;
-  font-family: inherit;
-  transition: border-color 0.2s;
-}
-.field input:focus,
-.field textarea:focus,
-.field select:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-light);
-}
-.field textarea { min-height: 70px; resize: vertical; }
-
-/* ALERTS */
-.alert {
-  padding: 12px 16px;
-  border-radius: 10px;
-  font-size: 13px;
-  margin-bottom: 14px;
-  display: none;
-  line-height: 1.5;
-}
-.alert.err {
-  background: var(--danger-bg);
-  color: var(--danger);
-  display: block;
-  border: 1px solid rgba(220,38,38,0.25);
-}
-.alert.ok {
-  background: var(--success-bg);
-  color: var(--success);
-  display: block;
-  border: 1px solid rgba(21,128,61,0.25);
-}
-.alert.info {
-  background: var(--accent-light);
-  color: var(--accent-dark);
-  display: block;
-  border: 1px solid rgba(59,130,246,0.25);
-}
-
-/* ============ LOCATION MODAL (Custom) ============ */
-.location-modal-overlay {
-  position: fixed; inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  z-index: 4000;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-.location-modal-overlay.show { display: flex; }
-
-.location-modal {
-  background: white;
-  border-radius: 20px;
-  padding: 30px 24px;
-  max-width: 400px;
-  width: 100%;
-  border: 1px solid var(--border);
-  text-align: center;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
-  animation: modalPop 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-@keyframes modalPop {
-  from { transform: scale(0.9); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-.location-modal .icon-circle {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, var(--accent-light), #eff6ff);
-  border: 2px solid rgba(59,130,246,0.3);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 38px;
-  margin: 0 auto 20px;
-  animation: locPulse 2s ease-in-out infinite;
-}
-@keyframes locPulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(59,130,246,0.4);
+.pv-video-fallback .watch-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 12px 22px; border-radius: 10px; font-size: 13.5px; font-weight: 800; text-decoration: none; box-shadow: 0 6px 20px rgba(59,130,246,0.35); }  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; align-items: center; justify-content: center;
+    padding: 16px; z-index: 3000;
+    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
   }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 0 16px rgba(59,130,246,0);
+  .modal-overlay.show { display: flex; }
+  .modal {
+    background: white; border-radius: 18px; padding: 24px;
+    max-width: 440px; width: 100%; border: 1px solid var(--border);
+    max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.2);
   }
-}
+  .modal h2 { font-size: 20px; margin-bottom: 8px; letter-spacing: -0.3px; color: var(--text); font-weight: 800; }
+  .modal p { color: var(--muted); font-size: 13.5px; margin-bottom: 18px; line-height: 1.5; }
 
-.location-modal h3 {
-  font-size: 20px;
-  font-weight: 800;
-  margin-bottom: 10px;
-  letter-spacing: -0.3px;
-  color: var(--text);
-}
-.location-modal p {
-  color: var(--muted);
-  font-size: 13.5px;
-  line-height: 1.6;
-  margin-bottom: 24px;
-}
+  .field { margin-bottom: 14px; }
+  .field label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; font-weight: 700; }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 12px 14px; border-radius: 10px;
+    background: white; border: 1px solid var(--border-dark);
+    color: var(--text); font-size: 14px; outline: none;
+    font-family: inherit; transition: border-color 0.2s;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus {
+    border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-light);
+  }
+  .field textarea { min-height: 70px; resize: vertical; }
 
-.location-modal .btn-allow {
-  width: 100%;
-  padding: 15px;
-  border-radius: 12px;
-  border: none;
-  background: var(--accent);
-  color: white;
-  font-size: 15px;
-  font-weight: 800;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  box-shadow: 0 6px 20px rgba(59,130,246,0.35);
-  margin-bottom: 10px;
-  transition: all 0.2s;
-}
-.location-modal .btn-allow:hover {
-  background: var(--accent-dark);
-  transform: translateY(-1px);
-}
+  .alert { padding: 12px 16px; border-radius: 10px; font-size: 13px; margin-bottom: 14px; display: none; line-height: 1.5; }
+  .alert.err { background: var(--danger-bg); color: var(--danger); display: block; border: 1px solid rgba(220,38,38,0.25); }
+  .alert.ok { background: var(--success-bg); color: var(--success); display: block; border: 1px solid rgba(21,128,61,0.25); }
+  .alert.info { background: var(--accent-light); color: var(--accent-dark); display: block; border: 1px solid rgba(59,130,246,0.25); }
 
-.location-modal .btn-not-now {
-  width: 100%;
-  padding: 13px;
-  border-radius: 12px;
-  border: 1px solid var(--border-dark);
-  background: white;
-  color: var(--muted);
-  font-size: 13.5px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.location-modal .btn-not-now:hover {
-  background: var(--bg);
-  color: var(--text);
-}  /* ============ BOTTOM NAV (Light Theme) ============ */
+  .location-modal-overlay {
+    position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6);
+    display: none; align-items: center; justify-content: center;
+    padding: 20px; z-index: 4000; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  }
+  .location-modal-overlay.show { display: flex; }
+  .location-modal {
+    background: white; border-radius: 20px; padding: 30px 24px;
+    max-width: 400px; width: 100%; border: 1px solid var(--border);
+    text-align: center; box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    animation: modalPop 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @keyframes modalPop { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .location-modal .icon-circle {
+    width: 80px; height: 80px; background: linear-gradient(135deg, var(--accent-light), #eff6ff);
+    border: 2px solid rgba(59,130,246,0.3); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 38px; margin: 0 auto 20px; animation: locPulse 2s ease-in-out infinite;
+  }
+  @keyframes locPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59,130,246,0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 0 16px rgba(59,130,246,0); }
+  }
+  .location-modal h3 { font-size: 20px; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.3px; color: var(--text); }
+  .location-modal p { color: var(--muted); font-size: 13.5px; line-height: 1.6; margin-bottom: 24px; }
+  .location-modal .btn-allow {
+    width: 100%; padding: 15px; border-radius: 12px; border: none;
+    background: var(--accent); color: white; font-size: 15px; font-weight: 800;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    gap: 8px; box-shadow: 0 6px 20px rgba(59,130,246,0.35); margin-bottom: 10px; transition: all 0.2s;
+  }
+  .location-modal .btn-allow:hover { background: var(--accent-dark); transform: translateY(-1px); }
+  .location-modal .btn-not-now {
+    width: 100%; padding: 13px; border-radius: 12px;
+    border: 1px solid var(--border-dark); background: white;
+    color: var(--muted); font-size: 13.5px; font-weight: 700;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .location-modal .btn-not-now:hover { background: var(--bg); color: var(--text); }
+
   .bottom-nav {
     position: fixed; bottom: 0; left: 0; right: 0;
-    background: white;
-    border-top: 1px solid var(--border);
+    background: white; border-top: 1px solid var(--border);
     display: flex; justify-content: space-around;
     padding: 8px 0 max(8px, env(safe-area-inset-bottom));
-    z-index: 100;
-    box-shadow: 0 -2px 12px rgba(0,0,0,0.04);
+    z-index: 100; box-shadow: 0 -2px 12px rgba(0,0,0,0.04);
   }
   .nav-item {
-    flex: 1; text-align: center; padding: 6px;
-    cursor: pointer;
-    color: var(--muted);
-    font-size: 10.5px;
-    font-weight: 700;
+    flex: 1; text-align: center; padding: 6px; cursor: pointer;
+    color: var(--muted); font-size: 10.5px; font-weight: 700;
     display: flex; flex-direction: column; align-items: center; gap: 4px;
-    text-decoration: none;
-    transition: color 0.2s;
+    text-decoration: none; transition: color 0.2s;
   }
   .nav-item.active { color: var(--accent); }
   .nav-item:hover { color: var(--accent); }
   .nav-item .nav-icon { font-size: 20px; }
 
-  /* WHATSAPP FLOAT BUTTON */
   .whatsapp-btn {
-    position: fixed;
-    bottom: 90px;
-    right: 16px;
-    z-index: 99;
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    background: #25D366;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-    text-decoration: none;
-    transition: transform 0.2s;
+    position: fixed; bottom: 90px; right: 16px; z-index: 99;
+    width: 54px; height: 54px; border-radius: 50%; background: #25D366;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    font-size: 24px; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    text-decoration: none; transition: transform 0.2s;
   }
   .whatsapp-btn:hover { transform: scale(1.1); }
 
-  /* ============ RESPONSIVE ============ */
   @media (min-width: 640px) {
     .container { padding: 0 16px; }
-    .grid, .featured-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
+    .grid, .featured-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .property-title { font-size: 13.5px; min-height: 37px; }
     .property-price { font-size: 17px; }
     .hero h1 { font-size: 32px; }
     .hero p { font-size: 14px; }
   }
-
   @media (min-width: 768px) {
     .hero h1 { font-size: 42px; }
     .hero p { font-size: 15px; }
@@ -1264,11 +890,8 @@
     .pv-title { font-size: 26px; }
     .pv-price { font-size: 30px; }
   }
-
   @media (min-width: 1024px) {
-    .grid, .featured-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
+    .grid, .featured-grid { grid-template-columns: repeat(4, 1fr); }
   }
 </style>
 </head>
@@ -1289,7 +912,6 @@
   <h1>Find Your <span>Dream Home</span> in Kenya</h1>
   <p>Verified listings • Connect with agents and landlords directly</p>
 
-  <!-- SEARCH PANEL — Simplified -->
   <div class="search-panel">
     <button class="near-me-btn" id="nearMeBtn" onclick="requestLocationAndFindNearby()">
       📍 <span id="nearMeBtnText">Find Houses Near Me</span>
@@ -1297,7 +919,6 @@
   </div>
 </section>
 
-<!-- TRUST STRIP -->
 <section class="container">
   <div class="trust-strip">
     <div class="trust-pill"><span>✓</span> Verified</div>
@@ -1308,7 +929,6 @@
   </div>
 </section>
 
-<!-- FILTER CHIPS -->
 <div class="container">
   <div class="filters">
     <button class="chip active" onclick="filterByType(this, '')">All</button>
@@ -1319,16 +939,14 @@
     <button class="chip" onclick="filterByType(this, '2')">2 Bed</button>
     <button class="chip" onclick="filterByType(this, '3')">3+ Bed</button>
   </div>
-</div><!-- VERIFIED AGENTS BADGE -->
+</div>
+
 <section class="container">
   <div class="verified-agents-badge">
     <span class="dot"></span>
     <span>Verified Agents (20)</span>
   </div>
-</section>
-
-<!-- FEATURED PROPERTIES — SLIDE -->
-<section class="container">
+</section><section class="container">
   <div class="section-title">
     <h2><span class="emoji">🔥</span> Hot &amp; Trending</h2>
     <a href="#allPropertiesSection" onclick="scrollToAll(event)">View All →</a>
@@ -1346,7 +964,6 @@
   <div class="slide-dots" id="featuredSlideDots"></div>
 </section>
 
-<!-- NEAR YOU — SLIDE (only shows if there are nearby properties) -->
 <section class="container">
   <div class="near-you-section" id="nearYouSection">
     <div class="head">
@@ -1360,7 +977,6 @@
   </div>
 </section>
 
-<!-- ALL PROPERTIES — GRID -->
 <section class="container" id="allPropertiesSection">
   <div class="section-title">
     <h2>🏘️ Available Properties</h2>
@@ -1372,10 +988,7 @@
       <div>Loading properties...</div>
     </div>
   </div>
-</section><!-- ============================================================
-     HOW IT WORKS
-     ============================================================ -->
-<section class="container" style="padding: 40px 14px 20px; text-align: center; border-top: 1px solid var(--border); margin-top: 40px;">
+</section><section class="container" style="padding: 40px 14px 20px; text-align: center; border-top: 1px solid var(--border); margin-top: 40px;">
   <div style="font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1.8px; font-weight: 700; margin-bottom: 6px;">How It Works</div>
   <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 24px; letter-spacing: -0.4px; color: var(--text);">Connect with Property Owners in 3 Steps</h2>
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; max-width: 900px; margin: 0 auto; text-align: left;">
@@ -1397,9 +1010,6 @@
   </div>
 </section>
 
-<!-- ============================================================
-     REVIEWS
-     ============================================================ -->
 <section class="container" style="padding: 40px 14px 20px; text-align: center; border-top: 1px solid var(--border); margin-top: 40px;">
   <div style="font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1.8px; font-weight: 700; margin-bottom: 6px;">Client Reviews</div>
   <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.4px; color: var(--text);">What Our Clients Say</h2>
@@ -1432,9 +1042,6 @@
   </div>
 </section>
 
-<!-- ============================================================
-     TRUSTED LOCATIONS
-     ============================================================ -->
 <section class="container" style="padding: 30px 14px 40px; text-align: center; border-top: 1px solid var(--border); margin-top: 40px;">
   <div style="font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1.8px; font-weight: 700; margin-bottom: 14px;">Trusted by Kenyans Across</div>
   <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
@@ -1446,9 +1053,6 @@
   </div>
 </section>
 
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
 <section class="container" style="padding: 30px 14px 100px; text-align: center; border-top: 1px solid var(--border); margin-top: 20px;">
   <div style="font-size: 22px; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.3px; color: var(--text);">Delta Property Agency</div>
   <p style="color: var(--muted); font-size: 12.5px; margin-bottom: 24px;">Trusted by Kenyans looking for quality homes</p>
@@ -1464,17 +1068,11 @@
       © 2026 Delta Property Agency. All rights reserved.
     </div>
   </div>
-</section><!-- ============================================================
-     WHATSAPP FLOAT BUTTON
-     ============================================================ -->
-<a href="https://wa.me/254738264143?text=Hi%20Delta%20Property%20Agency%2C%20I%20need%20help%20finding%20a%20house." 
+</section><a href="https://wa.me/254738264143?text=Hi%20Delta%20Property%20Agency%2C%20I%20need%20help%20finding%20a%20house." 
    class="whatsapp-btn" 
    target="_blank"
    rel="noopener">💬</a>
 
-<!-- ============================================================
-     BOTTOM NAVIGATION
-     ============================================================ -->
 <nav class="bottom-nav">
   <div class="nav-item active" onclick="scrollToTop()">
     <div class="nav-icon">🏠</div>
@@ -1482,7 +1080,7 @@
   </div>
   <a href="/chat.html" class="nav-item" style="text-decoration:none;color:inherit;">
     <div class="nav-icon">💬</div>
-    <div>Support</div>
+    <div>Help</div>
   </a>
   <div class="nav-item" onclick="openTrackBooking()">
     <div class="nav-icon">🔍</div>
@@ -1490,13 +1088,10 @@
   </div>
   <div class="nav-item" onclick="openAdminLogin()">
     <div class="nav-icon">⚙️</div>
-    <div>Agent</div>
+    <div>Profile</div>
   </div>
 </nav>
 
-<!-- ============================================================
-     PROPERTY DETAIL VIEW
-     ============================================================ -->
 <div class="property-view" id="propertyView">
   <div class="pv-topbar">
     <button class="pv-back" onclick="closePropertyView()">← Back</button>
@@ -1542,24 +1137,21 @@
       </div>
     </div>
     
-    <!-- VIDEO SECTION -->
     <div id="pvVideoSection" style="display:none; margin-top: 24px;">
       <div class="pv-section-title">🎬 Video Tour</div>
       <div id="pvVideoContainer"></div>
       <div class="pv-video-actions" id="pvVideoActions"></div>
     </div>
     
-    <!-- DESCRIPTION -->
     <div class="pv-section-title">About this property</div>
     <p class="pv-desc" id="pvDescription">Description</p>
     
-    <!-- CONNECT CARD (2 Buttons) -->
     <div class="pv-book-card">
       <h3>💬 Connect with the Property</h3>
       <p>Choose how you want to proceed with this property.</p>
 
       <button onclick="openViewingModal()" id="scheduleViewingBtn"
-        style="width:100%; padding:16px; font-size:14px; font-weight:800; letter-spacing:0.3px; background:linear-gradient(135deg, #3b82f6, #2563eb); color:white; border:none; border-radius:12px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; box-shadow:0 6px 20px rgba(59,130,246,0.35); margin-bottom:10px;">
+        style="width:100%; padding:16px; font-size:14px; font-weight:800; letter-spacing:0.3px; background:linear-gradient(135deg, #1a6b3c, #14532d); color:white; border:none; border-radius:12px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; box-shadow:0 6px 20px rgba(26,107,60,0.35); margin-bottom:10px;">
         <span style="font-size:18px;">📅</span>
         <span>Schedule a Viewing</span>
         <span style="font-size:16px;">→</span>
@@ -1568,13 +1160,13 @@
       <div style="text-align:center; margin:10px 0; color:var(--muted); font-size:11px; font-weight:700; letter-spacing:1px;">— OR —</div>
 
       <button onclick="openLandlordModal()" id="speakLandlordBtn"
-        style="width:100%; padding:16px; font-size:14px; font-weight:800; letter-spacing:0.3px; background:linear-gradient(135deg, #a855f7, #7c3aed); color:white; border:none; border-radius:12px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; box-shadow:0 6px 20px rgba(168,85,247,0.35);">
+        style="width:100%; padding:16px; font-size:14px; font-weight:800; letter-spacing:0.3px; background:white; color:#1a6b3c; border:2px solid #1a6b3c; border-radius:12px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px;">
         <span style="font-size:18px;">📞</span>
         <span>Speak to Landlord Direct</span>
         <span style="font-size:16px;">→</span>
       </button>
 
-      <div style="margin-top:16px; padding:14px; background:var(--accent-light); border:1px solid rgba(59,130,246,0.25); border-radius:12px;">
+      <div style="margin-top:16px; padding:14px; background:var(--accent-light); border:1px solid rgba(26,107,60,0.25); border-radius:12px;">
         <div style="font-size:12.5px; color:var(--accent-dark); line-height:1.7;">
           ℹ️ <b>Schedule a Viewing</b> — Our agent will contact you to book your viewing appointment.<br>
           📞 <b>Speak to Landlord Direct</b> — For tenants ready to move in soon.
@@ -1582,194 +1174,10 @@
       </div>
     </div>
   </div>
-</div><!-- ============================================================
-     MODAL 1: SCHEDULE A VIEWING (→ Agent)
-     ============================================================ -->
-<div class="modal-overlay" id="viewingModal">
-  <div class="modal">
-    <h2>📅 Schedule a Viewing</h2>
-    <p>Our agent will contact you shortly to help you book your viewing appointment.</p>
-
-    <div class="alert err" id="viewingError"></div>
-    <div class="alert ok" id="viewingSuccess"></div>
-
-    <div id="viewingForm">
-      <div class="field">
-        <label>Full Name *</label>
-        <input type="text" id="viewingName" placeholder="e.g., John Mwangi">
-      </div>
-
-      <div class="field">
-        <label>Phone Number *</label>
-        <input type="tel" id="viewingPhone" placeholder="0712345678" inputmode="numeric" maxlength="10">
-      </div>
-
-      <div class="field">
-        <label>Preferred Viewing Date *</label>
-        <input type="date" id="viewingDate">
-      </div>
-
-      <div class="field">
-        <label>Preferred Time</label>
-        <select id="viewingTime">
-          <option value="">Any time</option>
-          <option value="Morning (8am - 12pm)">Morning (8am - 12pm)</option>
-          <option value="Afternoon (12pm - 4pm)">Afternoon (12pm - 4pm)</option>
-          <option value="Evening (4pm - 6pm)">Evening (4pm - 6pm)</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>Message (Optional)</label>
-        <textarea id="viewingMessage" placeholder="Any specific requests or questions..."></textarea>
-      </div>
-
-      <div style="background:var(--accent-light); padding:14px; border-radius:12px; margin-bottom:16px; font-size:12.5px; border:1px solid rgba(59,130,246,0.25);">
-        ℹ️ <b style="color:var(--accent-dark);">Viewing Appointment Details:</b><br>
-        <span style="color:var(--text); line-height:1.7;">
-          • Booking fee: <b>KES 1,000</b><br>
-          • You will be able to view up to <b>5 houses</b><br>
-          • Payment is handled directly with our agent<br>
-          • Our agent will explain the full process when they call you
-        </span>
-      </div>
-
-      <button class="btn btn-primary" style="width:100%;padding:15px; font-size:14px;" id="viewingSubmitBtn" onclick="submitViewingRequest()">
-        📩 Request Viewing Appointment
-      </button>
-      <button class="btn btn-outline" style="width:100%;margin-top:10px;padding:13px;" onclick="closeModal('viewingModal')">
-        Cancel
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- ============================================================
-     MODAL 2: SPEAK TO LANDLORD DIRECT (→ Landlord)
-     ============================================================ -->
-<div class="modal-overlay" id="landlordModal">
-  <div class="modal">
-    <h2>📞 Speak to Landlord Direct</h2>
-    <p>Connect directly with the property owner for immediate arrangements.</p>
-
-    <div class="alert err" id="landlordError"></div>
-    <div class="alert ok" id="landlordSuccess"></div>
-
-    <div id="landlordForm">
-      <div class="field">
-        <label>Full Name *</label>
-        <input type="text" id="landlordName" placeholder="e.g., Jane Wanjiku">
-      </div>
-
-      <div class="field">
-        <label>Phone Number *</label>
-        <input type="tel" id="landlordPhone" placeholder="0722334455" inputmode="numeric" maxlength="10">
-      </div>
-
-      <div class="field">
-        <label>When do you want to move in? *</label>
-        <select id="landlordMoveIn">
-          <option value="">Select...</option>
-          <option value="Immediately">Immediately (within 7 days)</option>
-          <option value="Within 2 weeks">Within 2 weeks</option>
-          <option value="Within a month">Within a month</option>
-          <option value="Within 2-3 months">Within 2-3 months</option>
-          <option value="Just inquiring">Just inquiring</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>Message to Landlord (Optional)</label>
-        <textarea id="landlordMessage" placeholder="e.g., Ready to pay deposit today. Looking for a 1-year lease."></textarea>
-      </div>
-
-      <div style="background:#f3e8ff; padding:14px; border-radius:12px; margin-bottom:16px; font-size:12.5px; border:1px solid rgba(168,85,247,0.25);">
-        ℹ️ <b style="color:#7c3aed;">Next Steps:</b><br>
-        <span style="color:var(--text); line-height:1.7;">
-          • The landlord will contact you shortly<br>
-          • Discuss move-in date and terms directly<br>
-          • Any payments will be handled between you and the landlord
-        </span>
-      </div>
-
-      <label style="display:flex; align-items:flex-start; gap:8px; padding:12px; background:var(--bg); border:1px solid var(--border); border-radius:10px; margin-bottom:14px; cursor:pointer;">
-        <input type="checkbox" id="landlordConfirm" style="width:auto; margin-top:2px;">
-        <span style="font-size:12px; color:var(--text); line-height:1.5;">
-          I confirm I'm ready to discuss moving in within 30 days
-        </span>
-      </label>
-
-      <button class="btn btn-primary" style="width:100%;padding:15px; font-size:14px; background:linear-gradient(135deg, #a855f7, #7c3aed);" id="landlordSubmitBtn" onclick="submitLandlordRequest()">
-        📩 Send to Landlord
-      </button>
-      <button class="btn btn-outline" style="width:100%;margin-top:10px;padding:13px;" onclick="closeModal('landlordModal')">
-        Cancel
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- ============================================================
-     TRACK MODAL
-     ============================================================ -->
-<div class="modal-overlay" id="trackModal">
-  <div class="modal">
-    <h2>Track My Enquiry</h2>
-    <p>Enter your enquiry reference to check status</p>
-    <div class="alert err" id="trackError"></div>
-    <div class="field">
-      <label>Reference</label>
-      <input type="text" id="trackRef" placeholder="e.g., VR-2026-0001 or LL-2026-0001">
-    </div>
-    <button class="btn btn-primary" style="width:100%;padding:15px; font-size:14px;" onclick="trackEnquiry()">🔍 Track</button>
-    <button class="btn btn-outline" style="width:100%;margin-top:10px;padding:13px;" onclick="closeModal('trackModal')">Cancel</button>
-    <div id="trackResult" style="margin-top:16px;"></div>
-  </div>
-</div>
-
-<!-- ============================================================
-     ADMIN LOGIN MODAL
-     ============================================================ -->
-<div class="modal-overlay" id="adminModal">
-  <div class="modal">
-    <h2>Agent Login</h2>
-    <p>Sign in to manage properties and enquiries</p>
-    <div class="alert err" id="adminError"></div>
-    <div class="field">
-      <label>Email or Phone</label>
-      <input type="text" id="adminEmail" placeholder="you@example.com">
-    </div>
-    <div class="field">
-      <label>Password</label>
-      <input type="password" id="adminPassword" placeholder="••••••••">
-    </div>
-    <button class="btn btn-primary" style="width:100%;padding:15px; font-size:14px;" onclick="adminLogin()">Sign In</button>
-    <button class="btn btn-outline" style="width:100%;margin-top:10px;padding:13px;" onclick="closeModal('adminModal')">Cancel</button>
-  </div>
-</div>
-
-<!-- ============================================================
-     LOCATION PERMISSION MODAL
-     ============================================================ -->
-<div class="location-modal-overlay" id="locationModal">
-  <div class="location-modal">
-    <div class="icon-circle">📍</div>
-    <h3>See Houses Near You</h3>
-    <p>
-      Allow location access to see properties close to you.
-      We never share your location with anyone.
-    </p>
-    <button class="btn-allow" onclick="allowLocation()">
-      <span>✅</span>
-      <span>Allow Location</span>
-    </button>
-    <button class="btn-not-now" onclick="dismissLocation()">
-      Not Now
-    </button>
-  </div>
 </div><script>
 const API_BASE = 'https://house-hunt-server.onrender.com';
-const LOGO_PLACEHOLDER = 'https://res.cloudinary.com/yvzp2mhd/image/upload/v1791334545/deepseek_20261007_09b360.png';
+// CHANGED: Placeholder is now a room image instead of the logo
+const LOGO_PLACEHOLDER = 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=400&q=80';
 
 let state = {
   token: localStorage.getItem('hh_token') || null,
@@ -1810,9 +1218,6 @@ function escapeHtml(str) {
 function openModal(id) { document.getElementById(id).classList.add('show'); }
 function closeModal(id) { document.getElementById(id).classList.remove('show'); }
 
-// ============================================================
-// SAVED SUBMISSIONS (localStorage — repeat-block)
-// ============================================================
 function markPropertySubmitted(propertyId, reference, type) {
   state.submittedProperties[propertyId + '_' + type] = {
     reference: reference,
@@ -1826,9 +1231,6 @@ function getPropertySubmission(propertyId, type) {
   return state.submittedProperties[propertyId + '_' + type] || null;
 }
 
-// ============================================================
-// RANDOM SHUFFLE
-// ============================================================
 function shuffleArray(arr) {
   const copy = [...arr];
   for (let i = copy.length - 1; i > 0; i--) {
@@ -1838,9 +1240,6 @@ function shuffleArray(arr) {
   return copy;
 }
 
-// ============================================================
-// LOCATION PERMISSION FLOW
-// ============================================================
 function shouldAskLocation() {
   const dismissed = localStorage.getItem('hh_location_dismissed');
   if (dismissed === 'true') return false;
@@ -1922,9 +1321,6 @@ function requestLocationAndFindNearby() {
   );
 }
 
-// ============================================================
-// LOAD NEARBY PROPERTIES (Slide)
-// ============================================================
 async function loadNearbyProperties() {
   if (!state.customerLocation) return;
   const btn = document.getElementById('nearMeBtn');
@@ -1971,9 +1367,6 @@ function clearNearby() {
   btnText.textContent = 'Find Houses Near Me';
 }
 
-// ============================================================
-// FAVORITES
-// ============================================================
 function toggleFavorite(propertyId, btnEl) {
   const idx = state.savedFavorites.indexOf(propertyId);
   if (idx === -1) state.savedFavorites.push(propertyId);
@@ -1986,9 +1379,6 @@ function toggleFavorite(propertyId, btnEl) {
   }
 }
 
-// ============================================================
-// SCROLL HELPERS
-// ============================================================
 function scrollToAll(e) {
   if (e) e.preventDefault();
   const el = document.getElementById('allPropertiesSection');
@@ -1996,9 +1386,7 @@ function scrollToAll(e) {
 }
 
 function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-// ============================================================
-// RENDER SLIDE CARD (Big card in Featured / Near You slides)
-// ============================================================
+
 function renderSlideCard(p, isNearby = false) {
   const img = (p.images && p.images[0] && !p.images[0].includes('via.placeholder.com'))
     ? p.images[0]
@@ -2037,12 +1425,7 @@ function renderSlideCard(p, isNearby = false) {
       </div>
     </div>
   `;
-}
-
-// ============================================================
-// RENDER GRID CARD (Small card in Available grid)
-// ============================================================
-function renderPropertyCard(p) {
+}function renderPropertyCard(p) {
   const img = (p.images && p.images[0] && !p.images[0].includes('via.placeholder.com'))
     ? p.images[0]
     : LOGO_PLACEHOLDER;
@@ -2056,7 +1439,7 @@ function renderPropertyCard(p) {
     : '<span class="badge-status available">● AVAILABLE</span>';
   const hasVideo = p.tiktok_url ? '<span class="badge-video">▶ Video</span>' : '';
   const playButton = p.tiktok_url
-    ? '<div class="video-play-overlay"></div><div class="click-to-watch-hint">👆 Click to Watch</div>'
+    ? '<div class="video-play-overlay"></div>'
     : '';
   const bedLabel = p.unitLabel || ((p.bedrooms === 0 || p.bedrooms === '0') ? 'Studio' : p.bedrooms + ' <span class="dim">bd</span>');
 
@@ -2065,7 +1448,7 @@ function renderPropertyCard(p) {
       <div class="property-img-wrap">
         <img class="property-img" src="${img}" alt="${escapeHtml(p.title)}" loading="lazy">
         <span class="badge-overlay ${typeClass}">${typeLabel}</span>
-        ${isNew && !isRented ? '<span class="badge-hot">HOT</span>' : ''}
+        ${p.isHot && !isRented ? '<span class="badge-hot">HOT</span>' : ''}
         ${playButton}
         ${hasVideo}
         ${statusBadge}
@@ -2083,9 +1466,6 @@ function renderPropertyCard(p) {
   `;
 }
 
-// ============================================================
-// SLIDE CONTROLS
-// ============================================================
 function slideScroll(trackId, direction) {
   const track = document.getElementById(trackId);
   if (!track) return;
@@ -2128,16 +1508,24 @@ function setupSlideDots(trackId, dotsId) {
   setTimeout(updateDots, 300);
 }
 
-// ============================================================
-// LOAD FEATURED PROPERTIES (Slide)
-// ============================================================
 async function loadFeatured() {
   const track = document.getElementById('featuredSlideTrack');
   try {
     const data = await api('/api/properties?limit=12');
     const list = data.properties || [];
-    const shuffled = shuffleArray(list);
-    state.featuredProperties = shuffled.slice(0, 6);
+    
+    // 1. Look for properties marked as "Hot" by the admin
+    let hotProps = list.filter(p => p.isHot === true || p.isHot === 'true');
+    
+    // 2. If no properties are marked as Hot, fall back to the newest ones
+    if (hotProps.length === 0) {
+      hotProps = [...list].sort((a, b) => new Date(b.created_at) - new Date(a.created_at)).slice(0, 6);
+    } else {
+      hotProps = hotProps.slice(0, 6);
+    }
+
+    state.featuredProperties = hotProps;
+    
     if (state.featuredProperties.length === 0) {
       track.innerHTML = '<div class="empty" style="flex:0 0 100%; padding:30px 20px;"><div class="empty-icon">🏘️</div><div style="font-size:13px;">No properties yet</div></div>';
       return;
@@ -2149,9 +1537,6 @@ async function loadFeatured() {
   }
 }
 
-// ============================================================
-// LOAD ALL PROPERTIES (Grid + shuffle + chip filter)
-// ============================================================
 async function loadProperties() {
   const grid = document.getElementById('propertiesGrid');
   const count = document.getElementById('propCount');
@@ -2191,9 +1576,6 @@ function renderProperties() {
   grid.innerHTML = filtered.map(p => renderPropertyCard(p)).join('');
 }
 
-// ============================================================
-// FILTER CHIPS
-// ============================================================
 function filterByType(btn, val) {
   document.querySelectorAll('.filters .chip').forEach(c => c.classList.remove('active'));
   btn.classList.add('active');
@@ -2210,9 +1592,8 @@ function filterByType(btn, val) {
   }
   renderProperties();
   scrollToAll();
-}// ============================================================
-// VIDEO TOUR RENDERER
-// ============================================================
+}
+
 function renderVideoTour(url) {
   const container = document.getElementById('pvVideoContainer');
   const actions = document.getElementById('pvVideoActions');
@@ -2297,12 +1678,7 @@ function renderVideoTour(url) {
       <div class="subtitle">Tap below to watch the full property video.</div>
       <a href="${url}" target="_blank" rel="noopener" class="watch-btn">▶️ Watch Video</a>
     </div>`;
-}
-
-// ============================================================
-// OPEN / CLOSE PROPERTY VIEW
-// ============================================================
-function openPropertyView(propertyId) {
+}function openPropertyView(propertyId) {
   let p = state.properties.find(x => x.id === propertyId);
   if (!p) p = state.featuredProperties.find(x => x.id === propertyId);
   if (!p) p = state.nearbyProperties.find(x => x.id === propertyId);
@@ -2340,7 +1716,11 @@ function openPropertyView(propertyId) {
   document.getElementById('pvBeds').textContent = p.unitLabel || ((p.bedrooms === 0 || p.bedrooms === '0') ? 'Studio' : p.bedrooms);
   document.getElementById('pvBaths').textContent = p.bathrooms;
   document.getElementById('pvTypeLabel').textContent = p.type === 'sale' ? 'Sale' : 'Rent';
-  document.getElementById('pvDescription').textContent = p.description || 'No description provided.';
+  
+  // CHANGED: Automatically remove phone numbers from description to protect leads
+  let cleanDesc = p.description || 'No description provided.';
+  cleanDesc = cleanDesc.replace(/(?:\+?254|0)[17]\d{1,2}[\s-]?\d{3}[\s-]?\d{3,4}/g, '').trim();
+  document.getElementById('pvDescription').textContent = cleanDesc;
 
   const videoSection = document.getElementById('pvVideoSection');
   if (p.tiktok_url) {
@@ -2371,9 +1751,6 @@ function closePropertyView() {
   document.getElementById('pvVideoActions').innerHTML = '';
 }
 
-// ============================================================
-// SUBMIT BUTTON STATE (repeat-block on UI)
-// ============================================================
 function updateSubmitButtonState(propertyId) {
   const viewingBtn = document.getElementById('scheduleViewingBtn');
   const landlordBtn = document.getElementById('speakLandlordBtn');
@@ -2382,24 +1759,32 @@ function updateSubmitButtonState(propertyId) {
 
   if (viewingSubmission) {
     viewingBtn.innerHTML = '<span style="font-size:18px;">✅</span><span>Viewing Already Requested</span><span style="font-size:16px;">✓</span>';
-    viewingBtn.style.background = 'linear-gradient(135deg, #16a34a, #15803d)';
+    viewingBtn.style.background = '#e8f5e9';
+    viewingBtn.style.color = '#1a6b3c';
+    viewingBtn.style.border = '1px solid #1a6b3c';
     viewingBtn.style.cursor = 'default';
     viewingBtn.onclick = () => showAlreadySubmitted('viewing', viewingSubmission.reference);
   } else {
     viewingBtn.innerHTML = '<span style="font-size:18px;">📅</span><span>Schedule a Viewing</span><span style="font-size:16px;">→</span>';
-    viewingBtn.style.background = 'linear-gradient(135deg, #3b82f6, #2563eb)';
+    viewingBtn.style.background = 'linear-gradient(135deg, #1a6b3c, #14532d)';
+    viewingBtn.style.color = 'white';
+    viewingBtn.style.border = 'none';
     viewingBtn.style.cursor = 'pointer';
     viewingBtn.onclick = openViewingModal;
   }
 
   if (landlordSubmission) {
     landlordBtn.innerHTML = '<span style="font-size:18px;">✅</span><span>Enquiry Already Sent</span><span style="font-size:16px;">✓</span>';
-    landlordBtn.style.background = 'linear-gradient(135deg, #7c3aed, #6d28d9)';
+    landlordBtn.style.background = '#e8f5e9';
+    landlordBtn.style.color = '#1a6b3c';
+    landlordBtn.style.border = '1px solid #1a6b3c';
     landlordBtn.style.cursor = 'default';
     landlordBtn.onclick = () => showAlreadySubmitted('landlord', landlordSubmission.reference);
   } else {
     landlordBtn.innerHTML = '<span style="font-size:18px;">📞</span><span>Speak to Landlord Direct</span><span style="font-size:16px;">→</span>';
-    landlordBtn.style.background = 'linear-gradient(135deg, #a855f7, #7c3aed)';
+    landlordBtn.style.background = 'white';
+    landlordBtn.style.color = '#1a6b3c';
+    landlordBtn.style.border = '2px solid #1a6b3c';
     landlordBtn.style.cursor = 'pointer';
     landlordBtn.onclick = openLandlordModal;
   }
@@ -2413,9 +1798,6 @@ function showAlreadySubmitted(type, reference) {
   alert(title + '\n\nReference: ' + reference + '\n\n' + msg + '\n\nIf you need help, call 0738 264 143.');
 }
 
-// ============================================================
-// IMAGE SWITCH + AUTOPLAY
-// ============================================================
 function switchImage(index) {
   const p = state.selectedProperty;
   if (!p) return;
@@ -2467,9 +1849,6 @@ function stopAutoplay() {
   if (fill) fill.style.width = '0%';
 }
 
-// ============================================================
-// HEART (in property view)
-// ============================================================
 function toggleHeart() {
   if (!state.selectedProperty) return;
   const id = state.selectedProperty.id;
@@ -2479,9 +1858,6 @@ function toggleHeart() {
   heartBtn.classList.toggle('active', state.savedFavorites.includes(id));
 }
 
-// ============================================================
-// SWIPE SUPPORT
-// ============================================================
 let touchStartX = 0;
 const pvHero = document.getElementById('pvHeroImg');
 if (pvHero) {
@@ -2497,9 +1873,8 @@ if (pvHero) {
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closePropertyView();
-});// ============================================================
-// MODAL OPEN HANDLERS
-// ============================================================
+});
+
 function openViewingModal() {
   if (!state.selectedProperty) return;
   document.getElementById('viewingError').style.display = 'none';
@@ -2523,12 +1898,7 @@ function openLandlordModal() {
   if (savedName) document.getElementById('landlordName').value = savedName;
   if (savedPhone) document.getElementById('landlordPhone').value = savedPhone;
   openModal('landlordModal');
-}
-
-// ============================================================
-// SUBMIT VIEWING REQUEST
-// ============================================================
-async function submitViewingRequest() {
+}async function submitViewingRequest() {
   const errEl = document.getElementById('viewingError');
   const okEl = document.getElementById('viewingSuccess');
   const btn = document.getElementById('viewingSubmitBtn');
@@ -2564,11 +1934,9 @@ async function submitViewingRequest() {
     });
 
     markPropertySubmitted(state.selectedProperty.id, res.reference, 'viewing');
-
     document.getElementById('viewingForm').style.display = 'none';
     okEl.innerHTML = buildViewingSuccessHTML(name, res.reference);
     okEl.style.display = 'block';
-
     updateSubmitButtonState(state.selectedProperty.id);
 
   } catch (e) {
@@ -2588,9 +1956,6 @@ async function submitViewingRequest() {
   }
 }
 
-// ============================================================
-// SUBMIT LANDLORD REQUEST
-// ============================================================
 async function submitLandlordRequest() {
   const errEl = document.getElementById('landlordError');
   const okEl = document.getElementById('landlordSuccess');
@@ -2627,11 +1992,9 @@ async function submitLandlordRequest() {
     });
 
     markPropertySubmitted(state.selectedProperty.id, res.reference, 'landlord');
-
     document.getElementById('landlordForm').style.display = 'none';
     okEl.innerHTML = buildLandlordSuccessHTML(name, res.reference, state.selectedProperty.landlord_phone);
     okEl.style.display = 'block';
-
     updateSubmitButtonState(state.selectedProperty.id);
 
   } catch (e) {
@@ -2651,14 +2014,11 @@ async function submitLandlordRequest() {
   }
 }
 
-// ============================================================
-// SUCCESS SCREEN BUILDERS (SVG tick + WhatsApp)
-// ============================================================
 function buildViewingSuccessHTML(name, reference) {
   const waText = encodeURIComponent('Hi Delta Property Agency, I just submitted a viewing request with reference ' + reference + '. My name is ' + name + '. I would like to confirm my viewing appointment.');
   return `
     <div style="text-align:center; padding:8px 0;">
-      <div style="width:80px; height:80px; margin:0 auto 16px; background:linear-gradient(135deg, #3b82f6, #2563eb); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(59,130,246,0.4);">
+      <div style="width:80px; height:80px; margin:0 auto 16px; background:linear-gradient(135deg, #1a6b3c, #14532d); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(26,107,60,0.4);">
         <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M5 13L9 17L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -2668,8 +2028,8 @@ function buildViewingSuccessHTML(name, reference) {
         Thank you, <b style="color:var(--text);">${escapeHtml(name)}</b>.<br>
         Our agent will contact you shortly to help you book your viewing appointment.
       </div>
-      <div style="background:var(--accent-light); border:1px solid rgba(59,130,246,0.3); border-radius:12px; padding:14px; margin-bottom:14px; text-align:left;">
-        <div style="font-size:12.5px; color:var(--accent-dark); font-weight:800; margin-bottom:8px;">ℹ️ Viewing Appointment Details:</div>
+      <div style="background:#e8f5e9; border:1px solid rgba(26,107,60,0.3); border-radius:12px; padding:14px; margin-bottom:14px; text-align:left;">
+        <div style="font-size:12.5px; color:#14532d; font-weight:800; margin-bottom:8px;">ℹ️ Viewing Appointment Details:</div>
         <div style="font-size:12.5px; color:var(--text); line-height:1.8;">
           • Booking fee: <b>KES 1,000</b><br>
           • You will be able to view up to <b>5 houses</b><br>
@@ -2679,7 +2039,7 @@ function buildViewingSuccessHTML(name, reference) {
       </div>
       <div style="background:var(--bg); border:1px solid var(--border); padding:12px; border-radius:10px; margin-bottom:16px;">
         <div style="font-size:11px; color:var(--muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Your Reference</div>
-        <b style="color:var(--accent); font-size:16px; letter-spacing:2px; font-family:monospace;">${escapeHtml(reference)}</b>
+        <b style="color:#1a6b3c; font-size:16px; letter-spacing:2px; font-family:monospace;">${escapeHtml(reference)}</b>
       </div>
       <a href="https://wa.me/254738264143?text=${waText}" target="_blank" rel="noopener"
          style="display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:14px; font-size:13.5px; font-weight:800; letter-spacing:0.3px; background:#25D366; color:white; border:none; border-radius:12px; text-decoration:none; box-shadow:0 6px 20px rgba(37,211,102,0.4); margin-bottom:10px;">
@@ -2707,7 +2067,6 @@ function buildLandlordSuccessHTML(name, reference, landlordPhone) {
     '💰 Rent: KES ' + Number(property.price || 0).toLocaleString() + (property.type === 'rent' ? ' /month' : '') + '\n' +
     '🆔 Reference: ' + reference + '\n';
 
-  // Add landmarks
   if (property.landmarks && property.landmarks.length > 0) {
     waMessage += '\n📍 Nearby Landmarks:\n';
     property.landmarks.slice(0, 5).forEach(lm => {
@@ -2731,13 +2090,11 @@ function buildLandlordSuccessHTML(name, reference, landlordPhone) {
   waMessage += '\nThank you, I look forward to your response.';
 
   const waText = encodeURIComponent(waMessage);
-
-  // Landlord WhatsApp: 0143732903 → 254143732903
   const waNumber = '254143732903';
 
   return `
     <div style="text-align:center; padding:8px 0;">
-      <div style="width:80px; height:80px; margin:0 auto 16px; background:linear-gradient(135deg, #a855f7, #7c3aed); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(168,85,247,0.4);">
+      <div style="width:80px; height:80px; margin:0 auto 16px; background:linear-gradient(135deg, #1a6b3c, #14532d); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(26,107,60,0.4);">
         <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M5 13L9 17L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -2748,8 +2105,8 @@ function buildLandlordSuccessHTML(name, reference, landlordPhone) {
         Your enquiry has been forwarded directly to the property owner.
       </div>
 
-      <div style="background:#f3e8ff; border:1px solid #a855f7; border-radius:12px; padding:14px; margin-bottom:14px; text-align:left;">
-        <div style="font-size:13px; color:#7c3aed; font-weight:800; margin-bottom:8px;">ℹ️ Next Steps:</div>
+      <div style="background:#e8f5e9; border:1px solid #1a6b3c; border-radius:12px; padding:14px; margin-bottom:14px; text-align:left;">
+        <div style="font-size:13px; color:#1a6b3c; font-weight:800; margin-bottom:8px;">ℹ️ Next Steps:</div>
         <div style="font-size:13px; color:#111827; line-height:1.8; font-weight:500;">
           • The landlord will contact you shortly<br>
           • Discuss move-in date and terms directly<br>
@@ -2759,7 +2116,7 @@ function buildLandlordSuccessHTML(name, reference, landlordPhone) {
 
       <div style="background:#f9fafb; border:1px solid #e5e7eb; padding:12px; border-radius:10px; margin-bottom:16px;">
         <div style="font-size:11px; color:#6b7280; margin-bottom:4px; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Your Reference</div>
-        <b style="color:#7c3aed; font-size:16px; letter-spacing:2px; font-family:monospace;">${escapeHtml(reference)}</b>
+        <b style="color:#1a6b3c; font-size:16px; letter-spacing:2px; font-family:monospace;">${escapeHtml(reference)}</b>
       </div>
 
       <a href="https://wa.me/${waNumber}?text=${waText}" target="_blank" rel="noopener"
@@ -2775,9 +2132,6 @@ function buildLandlordSuccessHTML(name, reference, landlordPhone) {
   `;
 }
 
-// ============================================================
-// TRACK ENQUIRY
-// ============================================================
 function openTrackBooking() {
   document.getElementById('trackError').style.display = 'none';
   document.getElementById('trackResult').innerHTML = '';
@@ -2809,9 +2163,6 @@ async function trackEnquiry() {
   `;
 }
 
-// ============================================================
-// ADMIN LOGIN
-// ============================================================
 function openAdminLogin() {
   if (state.token && state.user) {
     const action = confirm('Logged in as ' + state.user.name + '.\n\nOK = logout, Cancel = dashboard.');
@@ -2853,16 +2204,10 @@ async function adminLogin() {
   }
 }
 
-// ============================================================
-// CLOSE MODALS ON OUTSIDE CLICK
-// ============================================================
 document.querySelectorAll('.modal-overlay').forEach(m => {
   m.addEventListener('click', e => { if (e.target === m) closeModal(m.id); });
 });
 
-// ============================================================
-// AUTO-REFRESH — every 30 seconds
-// ============================================================
 function startAutoRefresh() {
   if (state.refreshInterval) clearInterval(state.refreshInterval);
   state.refreshInterval = setInterval(async () => {
@@ -2888,9 +2233,6 @@ document.addEventListener('visibilitychange', () => {
   }
 });
 
-// ============================================================
-// INIT
-// ============================================================
 window.addEventListener('DOMContentLoaded', () => {
   if (state.user) {
     document.getElementById('adminBtn').textContent = '👤 ' + state.user.name.split(' ')[0];
